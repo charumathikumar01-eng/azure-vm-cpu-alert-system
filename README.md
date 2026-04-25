@@ -57,7 +57,7 @@ Azure VM → Azure Monitor Metrics → Alert Rule (CPU > 80%) → Action Group �
 ##  Screenshots
 
 ### VM Creation
- ![VM Creation](creating-vm.PNG)
+![VM Creation](Creating-vm.PNG)
   
 ### SSH Connection
   ![SSH Connection](ssh-connected.PNG)
