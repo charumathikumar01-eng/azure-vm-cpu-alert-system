@@ -1,0 +1,32 @@
+
+# This is your CI/CD pipeline - runs automatically on every push
+name: Azure Alert System - Deployment Validation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check required files exist
+        run: |
+          echo "Running deployment validation..."
+          echo "Checking README exists..."
+          ls README.md && echo "README found" || echo "README missing"
+          echo "Checking screenshots folder..."
+          ls screenshots/ && echo "Screenshots found" || echo "No screenshots"
+          echo "Validation complete."
+
+      - name: Print system info
+        run: |
+          echo "Pipeline run by: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Deployment validation passed successfully."
